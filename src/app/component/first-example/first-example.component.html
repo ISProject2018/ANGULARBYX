@@ -1,0 +1,96 @@
+<div class="animated fadeIn">
+  <div class="container py-5">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <h4>One way Data binding</h4>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-tab-group dynamicHeight>
+          <mat-tab label="HTML">
+            <pre><code highlight [textContent]="codeInterface.code['1.1_html'].html"></code></pre>
+          </mat-tab>
+          <mat-tab label="TS">
+            <pre><code highlight [textContent]="codeInterface.code['1.1_ts'].html"></code></pre>
+          </mat-tab>
+        </mat-tab-group>
+        <mat-divider></mat-divider>
+        <div class="mx-5 py-5">
+          <h4>{{name}}</h4>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="container mb-5">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <h4>Two way Data binding</h4>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-tab-group dynamicHeight>
+          <mat-tab label="HTML">
+            <pre><code highlight [textContent]="codeInterface.code['1.2_html'].html"></code></pre>
+          </mat-tab>
+          <mat-tab label="app.module.ts">
+            <pre><code highlight [textContent]="codeInterface.code['1.2_modts'].html"></code></pre>
+          </mat-tab>
+        </mat-tab-group>
+        <mat-divider></mat-divider>
+        <div class="mx-5 py-5 row">
+          <mat-form-field class="col-4">
+            <input matInput placeholder="Input Name" [(ngModel)]="twoway">
+          </mat-form-field>
+          <h4 class="col-8 mt-4">Output : {{twoway}}</h4>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="container pb-5">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <h4>List</h4>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-tab-group dynamicHeight>
+          <mat-tab label="HTML">
+            <pre><code highlight [textContent]="codeInterface.code['1.3_html'].html"></code></pre>
+          </mat-tab>
+          <mat-tab label="TS">
+            <pre><code highlight [textContent]="codeInterface.code['1.3_ts'].html"></code></pre>
+          </mat-tab>
+        </mat-tab-group>
+        <mat-divider></mat-divider>
+        <div class="mx-5 py-5">
+          <mat-card style="max-width:500px">
+            <mat-card-header>
+              <mat-card-title>
+                <h4>Fruits</h4>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <mat-selection-list [(ngModel)]="selectedOptions">
+                <mat-list-option *ngFor="let fruit of fruits" class="animated fadeInRight" [value]="fruit">{{fruit}}</mat-list-option>
+              </mat-selection-list>
+              <div class="row mx-2 my-3">
+                <mat-form-field class="col-8">
+                  <input matInput placeholder="Insert fruit" [(ngModel)]="fruit">
+                </mat-form-field>
+                <div class="col-2 mt-3">
+                  <button mat-raised-button color="primary" type="submit" (click)="addFruit()">Add</button>
+                </div>
+                <div class="col-2 mt-3">
+                  <button mat-raised-button color="warn" type="submit" (click)="delFruit()"><i class="fas fa-trash-alt"></i></button>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

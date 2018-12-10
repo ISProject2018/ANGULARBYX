@@ -1,0 +1,78 @@
+<div class="container mt-5">
+  <mat-card style="margin-left:20%;margin-right:20%">
+    <mat-card-header>
+      <mat-card-title>
+        <h4>คำสั่งซื้อ</h4>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="container my-3">
+        <mat-horizontal-stepper linear #stepper>
+          <mat-step>
+            <ng-template matStepLabel><h6 class="mt-2">กรอกข้อมูล</h6></ng-template>
+            <div class="row">
+              <div class="col-10 offset-1">
+                <div class="form-group">
+                  <label for="user_name">ชื่อ</label>
+                  <input type="text" class="form-control" id="user_name" [(ngModel)]="user_name">
+                </div>
+                <div class="form-group">
+                  <label for="user_surname">นามสกุล</label>
+                  <input type="text" class="form-control" id="user_surname" [(ngModel)]="user_surname">
+                </div>
+                <div class="form-group">
+                  <label for="user_email">อีเมล</label>
+                  <input type="email" class="form-control" id="user_email" [(ngModel)]="user_email">
+                </div>
+                <div class="form-group">
+                  <label for="user_address">ที่อยู่</label>
+                  <input type="text" class="form-control" id="user_address" [(ngModel)]="user_address">
+                </div>
+                <div class="form-group">
+                  <label for="user_tel">เบอร์โทรศัพท์</label>
+                  <input type="text" class="form-control" id="user_tel" [(ngModel)]="user_tel">
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end">
+              <button mat-raised-button color="primary" matStepperNext>ถัดไป</button>
+            </div>
+          </mat-step>
+          <mat-step>
+            <ng-template matStepLabel><h6 class="mt-2">ยืนยันคำสั่งซื้อ</h6></ng-template>
+            <div class="container">
+              <p>ชื่อ-นามสกุล : {{user_name}} {{user_surname}}</p>
+              <p>อีเมล : {{user_email}}</p>
+              <p>ที่อยู่ : {{user_address}}</p>
+              <p>เบอร์โทรศัพท์ : {{user_tel}}</p>
+              <table class="table text-center">
+                <thead>
+                  <tr>
+                    <th>ชื่อสินค้า</th>
+                    <th>ราคาต่อหน่วย</th>
+                    <th style="width:100px;table-layout: fixed;">จำนวน</th>
+                  </tr>
+                </thead>
+                <tbody class="my-5">
+                  <tr *ngFor="let item of cart; let index = index">
+                    <td>
+                      <h5 class="text-left">{{item.Product_name}}</h5>
+                    </td>
+                    <td>{{item.Product_price}}</td>
+                    <td>{{item.Product_amount}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="footer">
+              <button mat-button matStepperPrevious>กลับ</button>
+              <button mat-raised-button color="primary" (click)="doSubmit()">ยืนยันคำสั่งซื้อ
+                <ngx-spinner #Spinner></ngx-spinner>
+              </button>
+            </div>
+          </mat-step>
+        </mat-horizontal-stepper>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,61 @@
+<div class="animated fadeIn">
+  <div class="container py-5">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <h4>รายการคำสั่งซื้อ</h4>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-accordion *ngFor="let Order of Orders;let i = index">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                รหัสคำสั่งซื้อ # {{Order.Order_id}}
+              </mat-panel-title>
+              <mat-panel-description>
+                {{Order.Order_name + " " + Order.Order_surname}}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <div class="row">
+              <div class="col-6">
+                <mat-list role="list">
+                  <mat-list-item role="listitem">ชื่อ : {{Order.Order_name + " " + Order.Order_surname}}</mat-list-item>
+                  <mat-list-item role="listitem">เบอร์โทรศัพท์ : {{Order.Order_tel}}</mat-list-item>
+                  <mat-list-item role="listitem">อีเมล : {{Order.Order_email}}</mat-list-item>
+                  <mat-list-item role="listitem">ที่อยู่ : {{Order.Order_address}}</mat-list-item>
+                </mat-list>
+              </div>
+              <div class="col-6">
+                <table mat-table style="width:100%" [dataSource]="Order.Order_detail" class="mat-elevation-z8">
+
+                  <ng-container matColumnDef="Product_name">
+                    <th mat-header-cell *matHeaderCellDef style="width:60%">สินค้า</th>
+                    <td mat-cell *matCellDef="let element"> {{element.Product_name}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="Product_amout">
+                    <th mat-header-cell *matHeaderCellDef style="width:20%;text-align:center">จำนวน</th>
+                    <td mat-cell *matCellDef="let element" style="text-align:center"> {{element.Product_amout}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="Product_price">
+                    <th mat-header-cell *matHeaderCellDef style="width:20%;text-align:center">ราคา (บาท)</th>
+                    <td mat-cell *matCellDef="let element" style="text-align:center"> {{element.Product_price}} </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+              </div>
+            </div>
+
+          </mat-expansion-panel>
+        </mat-accordion>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+</div>

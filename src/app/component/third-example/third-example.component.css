@@ -1,0 +1,14 @@
+.background{
+    background: linear-gradient(135deg,rgb(46, 122, 221) 10% , rgb(72, 187, 240) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+h1, h5, th, td, p, span, button{
+    font-family: 'prompt' !important;
+}
+
+img{
+    height: 300px;
+}
+

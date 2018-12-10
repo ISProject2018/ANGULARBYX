@@ -1,0 +1,15 @@
+class User {
+    id: number;
+    name: string;
+    username: string;
+    email: string;
+}
+
+export const users: User[] = [
+    {
+        id: 1,
+        name: "Leanne Graham",
+        username: "Bret",
+        email: "Sincere@april.biz",
+    }
+]

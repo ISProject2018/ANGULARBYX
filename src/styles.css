@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@font-face {
+    font-family: 'prompt';
+    src: url('assets/font/prompt-regular-webfont.woff2') format('woff2'),
+         url('assets/font/prompt-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body,h1,h2,h3,h4,h5,h6,p{
+    font-family: 'montserrat' !important;
+}
+
+pre{
+    text-indent: 88px !important;
+    margin-left:-20px !important;
+    background: rgb(52, 58, 64) !important;
+    margin: 0 !important;
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+code{
+    font-size: 20px !important;
+    background: rgb(52, 58, 64) !important;
+}
+
+mat-card{
+    box-shadow: 0 3px 20px 0 #0000003b !important;
+    padding: 0px !important;
+}
+
+mat-card-header{
+   background: #3F51B5;
+   color:white;
+}
+
+mat-card-title{
+    margin: 18px !important;
+    font-family: 'montserrat' !important;
+}
+
+mat-form-field{
+    font-size: 20px !important;
+    font-family: 'montserrat' !important;
+}
+
+.background{
+    background: linear-gradient(135deg,rgb(46, 122, 221) 10% , rgb(72, 187, 240) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}

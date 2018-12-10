@@ -1,0 +1,33 @@
+<h1 mat-dialog-title cdkFocusInitial>รถเข็นสินค้า</h1>
+<div mat-dialog-content class="my-5">
+  <table class="table text-center">
+    <thead>
+      <tr>
+        <th>ชื่อสินค้า</th>
+        <th>ราคาต่อหน่วย</th>
+        <th style="width:100px;table-layout: fixed;">จำนวน</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class="my-5">
+      <tr *ngFor="let item of data.cart; let index = index">
+        <td>
+          <h5 class="text-left">{{item.Product_name}}</h5>
+        </td>
+        <td>{{item.Product_price}}</td>
+        <td><input type="number" (change)="changeAmount(index,amount.value)" value="1" min="1" max="10" step="1"
+            #amount /></td>
+        <td style="padding:5px"><button mat-icon-button color="warn" (click)="removeItem(item.Product_name)"><i class="fas fa-trash-alt"></i></button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="d-flex justify-content-end mt-5">
+    <h5>รวม {{total}} บาท</h5>
+  </div>
+</div>
+<div mat-dialog-actions class="footer">
+    <button (click)="closeCart()" mat-button>ปิดหน้าต่าง</button>
+    <button (click)="progressOrder()" mat-raised-button color="primary">ยืนยันคำสั่งซื้อ
+      <ngx-spinner #orderSpinner></ngx-spinner>
+    </button>
+</div>
